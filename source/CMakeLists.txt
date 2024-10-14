@@ -5,8 +5,21 @@ project(SplashKit)
 
 # Detect Windows and flag MSYS
 if (WIN32 OR MSYS OR MINGW)
-    message(SEND_ERROR "Source compile only available for Linux")
-    return ()
+    # message(SEND_ERROR "Source compile only available for Linux")
+    # return ()
+    set(PATH_SUFFIX "win64")
+    set(MSYS "true")
+
+    string(COMPARE EQUAL "MINGW64" "$ENV{MSYSTEM}" MINGW64)
+
+    if (${MINGW64})
+        message("Using mingw64")
+        set(OS_PATH_SUFFIX "win64")
+        set(MINGW_PATH_PART "mingw64")
+    else ( )
+        message(SEND_ERROR "Failed to detect windows architecture")
+        return ()
+    endif()
 elseif (APPLE)
     set(PATH_SUFFIX "macos")
 else()
