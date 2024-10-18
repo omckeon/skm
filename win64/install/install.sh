@@ -7,9 +7,9 @@ SKM_PATH=`cd "$APP_PATH/../.."; pwd`
 
 source "${SKM_PATH}/tools/set_sk_env_vars.sh"
 
-if || [ "$SK_OS" = "win64" ]; then
+if [ "$SK_OS" = "win64" ]; then
   : # All good - no op and continue
-elif [ "$SK_OS" = "linux" ] [ "$SK_OS" = "macos" ] || ( echo "${*}" | grep '\-\-no-os-detect' ); then
+elif [ "$SK_OS" = "linux" ] ||  [ "$SK_OS" = "macos" ] || ( echo "${*}" | grep '\-\-no-os-detect' ); then
   echo "win64 install only available on Windows with MSYS2 MINGW64 shell"
   exit 1
 else
