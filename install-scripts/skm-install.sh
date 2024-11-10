@@ -36,7 +36,7 @@ if [ -d "${INSTALL_PATH}" ]; then
     exit 1
 fi
 
-git clone --depth 1 --branch fix/python $GIT_SKM_REPO "${INSTALL_PATH}"
+git clone --depth 1 --branch test-fix/python $GIT_SKM_REPO "${INSTALL_PATH}"
 
 # Add SKM app to path without needing sudo
 
