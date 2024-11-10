@@ -44,11 +44,13 @@ git clone --depth 1 --branch fix/python $GIT_SKM_REPO "${INSTALL_PATH}"
 if [[ ${SHELL} = "/bin/bash" ]] || [ ${SHELL} = "/usr/bin/bash" -a `uname` = Linux ] ; then
     echo "export PATH=\"$INSTALL_PATH:\$PATH\"" >> ~/.bash_profile
     echo "export PATH=\"$INSTALL_PATH:\$PATH\"" >> ~/.bashrc
+    source ~/.bashrc
 fi
 
 # Add to .zshrc if using zsh
 if [[ ${SHELL} = "/bin/zsh" ]] || [[ ${SHELL} = "/usr/bin/zsh" ]]; then
     echo "export PATH=\"$INSTALL_PATH:\$PATH\"" >> ~/.zshrc
+    source ~/.zshrc
 fi
 
 export PATH="$INSTALL_PATH:$PATH"
