@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -eu
-GIT_SKM_REPO=https://github.com/splashkit/skm.git
+GIT_SKM_REPO=https://github.com/omckeon/skm.git
 MARK_CHECK="\xE2\x9C\x94"
 MARK_CROSS="\xE2\x9C\x95"
 
