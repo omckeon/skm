@@ -89,7 +89,12 @@ fi
 
 if [ "$SK_OS" = "linux" ]; then
     echo "Updating library config cache"
-    $PRIVILEGED ldconfig /usr/local/lib
+    # Add /usr/local/lib to ld search paths using conf file
+    touch "${SKM_PATH}/linux/usr-local.conf"
+    echo "/usr/local/lib" >> "${SKM_PATH}/linux/usr-local.conf"
+    $PRIVILEGED cp -n "${SKM_PATH}/linux/usr-local.conf /etc/ld.so.conf.d/usr-local.conf"
+    rm "${SKM_PATH}/linux/usr-local.conf"
+    $PRIVILEGED ldconfig
 elif [ "$SK_OS" = "macos" ]; then
     echo "Setting library location"
     sudo install_name_tool -id /usr/local/lib/libSplashKit.dylib /usr/local/lib/libSplashKit.dylib
