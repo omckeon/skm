@@ -73,6 +73,9 @@ if [[ `uname` = MINGW64* ]] || [[ `uname` = MSYS* ]]; then
 
     # Set updated Windows path
     powershell.exe -Command "[System.Environment]::SetEnvironmentVariable('PATH',\"$NEW_WIN_PATH\",'User')"
+
+    echo "Run the following to install the required pacman packages for splashkit:"
+    echo "${bold}skm windows install${normal}"
 fi
 
 if [[ `uname` = Linux ]]; then
