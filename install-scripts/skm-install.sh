@@ -1,6 +1,6 @@
 #!/bin/bash
 
-GIT_SKM_REPO=https://github.com/splashkit/skm.git
+GIT_SKM_REPO=https://github.com/omckeon/skm.git
 
 HOME_PATH=~
 INSTALL_PATH="${HOME_PATH}/.splashkit"
@@ -36,7 +36,7 @@ if [ -d "${INSTALL_PATH}" ]; then
     exit 1
 fi
 
-git clone --depth 1 --branch master $GIT_SKM_REPO "${INSTALL_PATH}"
+git clone --depth 1 --branch fix/linux-install $GIT_SKM_REPO "${INSTALL_PATH}"
 
 # Add SKM app to path without needing sudo
 
